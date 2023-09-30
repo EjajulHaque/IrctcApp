@@ -18,5 +18,6 @@ public interface IrctcInterface {
     PersonalDetail getPersonalDetailByAadhaarNo(String aadhaarNo);
     List<PersonalDetail> findDetailByAge(int age);
     String deleteByAadhaarNo(String aadhaarNo);
+    List<Passenger> getAllPassenger(Date startDate,Date endDate);
 
 }

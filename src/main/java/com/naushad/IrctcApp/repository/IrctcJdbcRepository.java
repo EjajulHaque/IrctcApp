@@ -139,9 +139,9 @@ public class IrctcJdbcRepository {
     }
 
     private boolean insertPersonalDetail(PersonalDetail personalDetail){
-        String query = "Insert into personaldetail(name,aadhaarNo,age,mobileNo) values(?,?,?,?)";
+        String query = "Insert into personalDetail(name,aadhaarNo,age,mobileNo) values(?,?,?,?)";
 
-       /* String query = "Insert into personaldetail(name,aadhaarNo,age,mobileNo) values(" +
+       /* String query = "Insert into personalDetail(name,aadhaarNo,age,mobileNo) values(" +
                 "'"+  personalDetail.getName() + "'," +"'"+  personalDetail.getAadhaarNo() + "',"
                 + personalDetail.getAge() + ",'"+  personalDetail.getMobileNo() + "'" +
                 ")";*/
@@ -199,6 +199,12 @@ public class IrctcJdbcRepository {
 
     public String generatePNR(){
         return (new Random().nextInt(1000)) + "";
+    }
+
+    public List<Passenger> getAllPassenger(Date startDate,Date endDate){
+        String query = "select * from passenger where DateOfJourney between ? and ?";
+        Object[] param = new Object[]{startDate,endDate};
+        return jdbcTemplate.query(query,param,new BeanPropertyRowMapper<>(Passenger.class));
     }
 
 }

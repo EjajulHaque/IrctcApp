@@ -16,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class IrctcController {
@@ -58,6 +59,11 @@ public class IrctcController {
     @DeleteMapping("/delete/{aadhaarNo}")
     public String deleteByAadhaarNo(@PathVariable String aadhaarNo){
         return irctcInterface.deleteByAadhaarNo(aadhaarNo);
+    }
+    @GetMapping("/getAllPassenger")
+    public List<Passenger> getAllPassenger(@RequestParam String startDate,@RequestParam String endDate)throws ParseException{
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return irctcInterface.getAllPassenger(simpleDateFormat.parse(startDate),simpleDateFormat.parse(endDate));
     }
 
 }

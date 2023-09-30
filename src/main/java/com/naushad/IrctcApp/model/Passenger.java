@@ -18,6 +18,7 @@ public class Passenger {
     private int trainNo;
     private PersonalDetail personalDetail;
     private int noOfSeats;
+    private String aadhaarNo;
     private Timestamp createdAt;
 
     private Constants.FoodType foodType;
