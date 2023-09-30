@@ -63,6 +63,7 @@ public class IrctcController {
     @GetMapping("/getAllPassenger")
     public List<Passenger> getAllPassenger(@RequestParam String startDate,@RequestParam String endDate)throws ParseException{
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println("Added sop for testing");
         return irctcInterface.getAllPassenger(simpleDateFormat.parse(startDate),simpleDateFormat.parse(endDate));
     }
 
