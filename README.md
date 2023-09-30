@@ -1,2 +1,2 @@
 # IrctcApp
-Applicaiton for Irctc
+Irctc spring boot application
